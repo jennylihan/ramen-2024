@@ -44,6 +44,14 @@ export default function Page() {
     event.preventDefault()
     const formData = new FormData(event.target)
     const data = Object.fromEntries(formData)
+
+    // if data has less than 1 or more than 3 veggie keys, alert user 
+    const veggieKeys = Object.keys(data).filter((key) => key.includes("veggie"))
+    if (veggieKeys.length == 0 || veggieKeys.length > 3) {
+      alert("Please select at least 1 vegetable, but no more than 3 vegetables.")
+      return
+    }
+
     console.log({ data })
     const { error } = await supabase
       .from('orders')
