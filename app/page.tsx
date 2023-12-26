@@ -66,7 +66,7 @@ export default function Page() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="space-y-12 sm:space-y-16 my-12 mx-36">
+      <div className="space-y-8 sm:space-y-8 my-12 mx-36">
         <div>
           <h2 className="text-3xl font-semibold leading-7 text-gray-900">We'll make you a bowl of ramen (online).</h2>
           <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-600">
