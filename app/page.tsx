@@ -7,11 +7,7 @@ import { RadioGroup } from '@headlessui/react'
 import { CheckCircleIcon } from '@heroicons/react/24/outline'
 
 export default function Page() {
-  const mailingLists = [
-    { id: 1, title: 'Newsletter', description: 'Last message sent an hour ago', users: '621 users' },
-    { id: 2, title: 'Existing Customers', description: 'Last message sent 2 weeks ago', users: '1200 users' },
-    { id: 3, title: 'Trial Users', description: 'Last message sent 4 days ago', users: '2740 users' },
-  ]
+  const [orderPlaced, setOrderPlaced] = useState(false)
 
   const bowlList = [
     { id: "bowl-original", name: 'Original King', description: '' },
@@ -41,27 +37,30 @@ export default function Page() {
 
   ]
 
-  const [orders, setOrders] = useState<any>()
-  const [selectedMailingLists, setSelectedMailingLists] = useState(mailingLists[0])
   const supabase = createClientComponentClient()
 
-  useEffect(() => {
-    const getData = async () => {
-      const { data } = await supabase.from('orders').select()
-      setOrders(data)
-    }
 
-    getData()
-  }, [])
-
-  function handleSubmit(event: any) {
+  async function handleSubmit(event: any) {
     event.preventDefault()
     const formData = new FormData(event.target)
     const data = Object.fromEntries(formData)
     console.log({ data })
+    const { error } = await supabase
+      .from('orders')
+      .upsert({ email: data.email, name: data.name, bowl_type: data.bowl, sauce: data.sauce, size: data.size, beauty: data["veggie-beauty"], usefulness: data["veggie-usefulness"], curiosity: data["veggie-curiosity"], humor: data["veggie-humor"], sentiment: data["veggie-sentiment"] })
+    if (!error) {
+      setOrderPlaced(true)
+    }
   }
   function classNames(...classes: any[]) {
     return classes.filter(Boolean).join(' ')
+  }
+
+  if (orderPlaced) {
+    return (
+      <div className="h-screen w-screen flex items-center justify-center">
+        <p>order placed! :)</p>
+      </div>)
   }
 
   return (
@@ -116,9 +115,10 @@ export default function Page() {
                             <div className="flex h-6 items-center">
                               <input
                                 id={bowl.id}
-                                name={bowl.id}
-                                type="checkbox"
-                                className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                                value={bowl.id}
+                                name="bowl"
+                                type="radio"
+                                className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                               />
                             </div>
                             <div className="text-sm">
