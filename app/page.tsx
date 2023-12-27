@@ -5,6 +5,12 @@ import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import { useEffect, useState } from 'react'
 import { RadioGroup } from '@headlessui/react'
 import { CheckCircleIcon } from '@heroicons/react/24/outline'
+import greenOnionIcon from "./assets/spring-onion.png"
+import seaweedIcon from "./assets/seaweed.png"
+import garlicIcon from "./assets/garlic.png"
+import mushroomIcon from "./assets/mushroom.png"
+import cabbageIcon from "./assets/cabbage.png"
+
 
 //import sprite from './assets/sprite2.svg'
 
@@ -19,11 +25,11 @@ export default function Page() {
     { id: "bowl-veggie", name: 'Veggie King', description: 'Non-vegan. Contains milk.' },
   ]
   const veggieList = [
-    { id: "veggie-beauty", name: 'Green Onion', description: 'beauty' },
-    { id: "veggie-usefulness", name: 'Mushroom', description: 'usefulness' },
-    { id: "veggie-curiosity", name: 'Seaweed', description: 'curiosity' },
-    { id: "veggie-humor", name: 'Cabbage', description: 'humor' },
-    { id: "veggie-sentiment", name: 'Garlic', description: 'sentiment' },
+    { id: "veggie-beauty", name: 'Green Onion', description: 'beauty', icon: greenOnionIcon },
+    { id: "veggie-usefulness", name: 'Mushroom', description: 'usefulness', icon: mushroomIcon  },
+    { id: "veggie-curiosity", name: 'Seaweed', description: 'curiosity', icon: seaweedIcon  },
+    { id: "veggie-humor", name: 'Cabbage', description: 'humor', icon: cabbageIcon  },
+    { id: "veggie-sentiment", name: 'Garlic', description: 'sentiment', icon: garlicIcon  },
   ]
 
   const sauceList = [
@@ -161,7 +167,7 @@ export default function Page() {
                   <legend className="sr-only">Sauce</legend>
                   <h3 className="text-sm text-gray-600">Sauce</h3>
                 </div>
-                <div className="flex flex-wrap gap-3 outline justify-center items-center p-3">
+                <div className="flex flex-wrap gap-3 outline justify-around items-center p-3">
                   {
                     sauceList.map((sauce) => {
                       return (
@@ -190,7 +196,7 @@ export default function Page() {
                   <legend className="sr-only">Size</legend>
                   <h3 className="text-sm text-gray-600">Size</h3>
                 </div>
-                <div className="flex flex-wrap gap-3 outline justify-center items-center p-3">
+                <div className="flex flex-wrap gap-3 outline justify-around items-center p-3">
                   {
                     sizeList.map((size) => {
                       return (
@@ -246,12 +252,12 @@ export default function Page() {
                 <div className="flex w-full h-full outline justify-items-center items-center">
                   <h2 className="vertical text-xs tracking-tighter uppercase font-semibold m-1">Vegetables * 3 max</h2>
                 </div>
-                <div className="flex flex-col w-full outline">
+                <div className="flex flex-col w-full h-full outline sm:flex-wrap sm:flex-row">
                     {
                       veggieList.map((veggie) => {
                         return (
-                          <div key={veggie.id} className="checkbox flex flex-row p-3">
-                            <div className="pl-7">
+                          <div key={veggie.id} className="checkbox flex flex-row sm:basis-6/12 p-3">
+                            <div className="flex place-items-center pl-7 w-full h-full">
                               <input
                                 id={veggie.id}
                                 name={veggie.id}
@@ -265,8 +271,14 @@ export default function Page() {
                                 <svg className="checkmark" viewBox="0 0 37.92 33.3" preserveAspectRatio="none">
                                   <path fill="none" stroke="#000" stroke-miterlimit="10" d="M.59 19.57c1.41.11 2.74 1.49 3.93 2.22 1.96 1.22 4.34 1.97 6.16 3.29 1.94 1.41 3.17 3.68 5.03 5.09-1.01-1.05-2.52-1.47-3.7-2.3-2.15-1.5-4.06-2.99-6.49-4.1-1.46-.67-6.06-1.54-4.8-4.07 1.76-.33 5.43 3.09 6.68 4.15 1.47 1.24 2.42 2.87 3.98 4 2.01 1.45 2.09 1.24 3.97-.52 1.43-1.34 2.28-2.68 3.24-4.25 1.04-1.71 2.62-3.12 3.79-4.72.31-.42.64-1.52.93-2 .87-1.48 2.1-2.58 3.3-3.77 2.23-2.22 4.27-4.42 6.27-6.8.59-.7 1.46-1.2 2-1.93.58-.77.73-1.66 1.33-2.42C33 3 31.46 7.7 29.34 10.35c-1.99 2.48-4.31 4.87-5.75 7.71-2.38 4.67-5.6 10.27-9.65 13.43.83-1.6 2.49-2.55 3.65-3.87 1.51-1.72 2.8-3.72 4.22-5.52 1.87-2.37 3.39-4.85 4.96-7.23 1.27-1.94 3.29-4.64 5.02-6.3 1.25-1.19 2.15-1.5 3.07-3 .61-.99.87-1.86 1.83-2.6-4.07 4.06-7.78 8.84-11.07 13.55-2.11 3.02-4.17 6.06-6.3 9.07-1 1.42-3.02 5.22-4.37 5.89.89-1.76 2.86-2.94 4.07-4.49 2.66-3.42 4.5-7.43 7.04-10.94 1.59-1.98 3.18-3.97 4.77-5.96.41-.84.74-1.72 1-2.62.72-1.07 1.95-1.79 2.76-2.91" />
                                 </svg>
+                                <div className="grid grid-cols-2">
+                                <img className="object-scale-down h-12 place-self-center"
+                                src={veggie.icon.src} alt={veggie.name + " icon"} />
+                                  <div>
                                 <p className="text-base font-medium text-gray-900">{veggie.name}</p>
                                 <p className="mt-1 text-sm text-gray-600">({veggie.description})</p>
+                                  </div>
+                                </div>
                               </label>
                             </div>
                           </div>
