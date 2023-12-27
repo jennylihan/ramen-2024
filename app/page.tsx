@@ -45,7 +45,7 @@ export default function Page() {
     const formData = new FormData(event.target)
     const data = Object.fromEntries(formData)
 
-    // if data has less than 1 or more than 3 veggie keys, alert user 
+    // if data has less than 1 ormore than 3 veggie keys, alert user 
     const veggieKeys = Object.keys(data).filter((key) => key.includes("veggie"))
     if (veggieKeys.length == 0 || veggieKeys.length > 3) {
       alert("Please select at least 1 vegetable, but no more than 3 vegetables.")
@@ -55,7 +55,7 @@ export default function Page() {
     console.log({ data })
     const { error } = await supabase
       .from('orders')
-      .upsert({ email: data.email, name: data.name, bowl_type: data.bowl, sauce: data.sauce, size: data.size, beauty: data["veggie-beauty"], usefulness: data["veggie-usefulness"], curiosity: data["veggie-curiosity"], humor: data["veggie-humor"], sentiment: data["veggie-sentiment"] })
+      .upsert({ email: data.email, name: data.name, bowl_type: data.bowl, sauce: data.sauce, size: data.size, beauty: data["veggie-beauty"], usefulness: data["veggie-usefulness"], curiosity: data["veggie-curiosity"], humor: data["veggie-humor"], sentiment: data["veggie-sentiment"], egg: data.egg })
     if (!error) {
       setOrderPlaced(true)
     }
@@ -254,7 +254,34 @@ export default function Page() {
                 </div>
               </div>
             </fieldset>
+            <fieldset>
+              <legend className="sr-only">Add egg?</legend>
+              <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:py-6">
+                <div className="text-sm font-semibold leading-6 text-gray-900" aria-hidden="true">
+                  Add egg? (no additional charge)
+                </div>
+                <div className="mt-4 sm:col-span-2 sm:mt-0">
+                  <div className="max-w-lg grid grid-cols-3 gap-y-6">
+                    <div className="flex flex-row gap-x-3">
+                      <div className="flex h-6 items-center">
+                        <input
+                          id="egg"
+                          name="egg"
+                          type="checkbox"
+                          className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                        />
+                      </div>
+                      <div className="text-sm">
+                        <label htmlFor="egg" className="font-medium text-gray-900">
+                          Yes
+                        </label>
+                      </div>
+                    </div>
 
+                  </div>
+                </div>
+              </div>
+            </fieldset>
 
 
           </div>
