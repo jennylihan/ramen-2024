@@ -32,6 +32,13 @@
   }
 }
 
+/* TEXT STYLING
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.vertical {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+
 /* CHECKBOX BUTTONS
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 input {
