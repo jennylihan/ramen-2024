@@ -39,6 +39,13 @@
   text-orientation: upright;
 }
 
+/* RADIO BUTTONS
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+[type="radio"] {
+  position: absolute;
+  left: -9999px;
+}
+
 /* CHECKBOX BUTTONS
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 input {

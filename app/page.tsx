@@ -119,37 +119,32 @@ export default function Page() {
           <div id="flavor">
             <fieldset>
               <legend className="sr-only">Bowl</legend>
-              <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:py-6">
-                <div className="text-sm font-semibold leading-6 text-gray-900" aria-hidden="true">
-                  Bowl
-                </div>
-                <div className="mt-4 sm:col-span-2 sm:mt-0">
-                  <div className="max-w-lg grid grid-cols-3 gap-y-6">
+              <div className="grid grid-cols-[25px_2fr_2fr] grid-rows-3 border-2 border-black justify-items-center items-center">
+              <div className="flex row-span-3 w-full h-full outline justify-items-center items-center">
+                <h2 className="vertical text-xs tracking-tighter uppercase font-semibold m-1">Ramen Flavor</h2>
+              </div>
                     {
                       bowlList.map((bowl) => {
                         return (
-                          <div key={bowl.id} className="flex flex-row gap-x-3">
-                            <div className="flex h-6 items-center">
+                          <div key={bowl.id} className="flex w-full h-full outline flex-row gap-x-3 p-3 justify-center items-center">
                               <input
                                 id={bowl.id}
                                 value={bowl.id}
                                 name="bowl"
                                 type="radio"
-                                className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                                className=""
                               />
-                            </div>
                             <div className="text-sm">
-                              <label htmlFor={bowl.id} className="font-medium text-gray-900">
-                                {bowl.name}
+                              <label htmlFor={bowl.id} className="">
+                                <p className="font-medium font-semibold text-base text-gray-900 text-center">{bowl.name}</p>
+                                <p className="mt-1 text-sm text-gray-600 text-center">{bowl.description ? "(" + bowl.description + ")" : ""}</p>
                               </label>
-                              <p className="mt-1 text-gray-600">{bowl.description ? "(" + bowl.description + ")" : ""}</p>
                             </div>
                           </div>
                         )
                       })
                     }
-                  </div>
-                </div>
+                    <div className="flex w-full h-full outline flex-row gap-x-3 p-3 justify-center items-center"></div>
               </div>
             </fieldset>
           </div>
