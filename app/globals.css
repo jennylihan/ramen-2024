@@ -60,7 +60,7 @@ input {
   left: -9999px;
 }
 
-.veggie-list label {
+.checkbox label {
   position: relative;
 }
 
@@ -73,7 +73,7 @@ svg {
 }
 
 
-.veggie-list label svg {
+.checkbox label svg {
   top: 50%;
   left: -25px;
   width: 20px;
@@ -81,13 +81,13 @@ svg {
   transform: translateY(-50%);
 }
 
-.veggie-list label .checkmark {
+.checkbox label .checkmark {
   /*the value of the stroke-* properties comes from the getTotalLength() method*/
   stroke-dasharray: 233.69552612304688;
   stroke-dashoffset: 233.69552612304688;
   transition: stroke-dashoffset 0.5s linear;
 }
 
-.veggie-list [type="checkbox"]:checked + label .checkmark {
+.checkbox [type="checkbox"]:checked + label .checkmark {
   stroke-dashoffset: 0;
 }
