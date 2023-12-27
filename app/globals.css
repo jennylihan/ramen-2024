@@ -31,3 +31,49 @@
     transform: translateY(0);
   }
 }
+
+/* CHECKBOX BUTTONS
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+input {
+  font-family: inherit;
+  font-size: 100%;
+  background: none;
+  outline: none;
+}
+
+[type="checkbox"] {
+  position: absolute;
+  left: -9999px;
+}
+
+.veggie-list label {
+  position: relative;
+}
+
+svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+.veggie-list label svg {
+  top: 50%;
+  left: -25px;
+  width: 20px;
+  height: 20px;
+  transform: translateY(-50%);
+}
+
+.veggie-list label .checkmark {
+  /*the value of the stroke-* properties comes from the getTotalLength() method*/
+  stroke-dasharray: 233.69552612304688;
+  stroke-dashoffset: 233.69552612304688;
+  transition: stroke-dashoffset 0.5s linear;
+}
+
+.veggie-list [type="checkbox"]:checked + label .checkmark {
+  stroke-dashoffset: 0;
+}

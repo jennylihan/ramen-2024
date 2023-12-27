@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react'
 import { RadioGroup } from '@headlessui/react'
 import { CheckCircleIcon } from '@heroicons/react/24/outline'
 
+//import sprite from './assets/sprite2.svg'
+
 export default function Page() {
   const [orderPlaced, setOrderPlaced] = useState(false)
 
@@ -157,7 +159,7 @@ export default function Page() {
           <div className="mt-10 space-y-10 border-b border-gray-900/10 pb-12 sm:space-y-0 sm:divide-y sm:divide-gray-900/10 sm:border-t sm:pb-0">
             <fieldset>
               <legend className="sr-only">Select up to 3.</legend>
-              <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:py-6">
+              <div className="veggie-list sm:grid sm:grid-cols-3 sm:gap-4 sm:py-6">
                 <div className="text-sm font-semibold leading-6 text-gray-900" aria-hidden="true">
                   Vegetables -- Select up to 3.
                 </div>
@@ -167,16 +169,20 @@ export default function Page() {
                       veggieList.map((veggie) => {
                         return (
                           <div key={veggie.id} className="flex flex-row gap-x-3">
-                            <div className="flex h-6 items-center">
+                            <div className="pl-7">
                               <input
                                 id={veggie.id}
                                 name={veggie.id}
                                 type="checkbox"
-                                className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                                //className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
                               />
-                            </div>
-                            <div className="text-sm">
                               <label htmlFor={veggie.id} className="font-medium text-gray-900">
+                                <svg id="checkbox_empty" viewBox="0 0 33.18 33.34">
+                                <path fill="none" stroke="#000" stroke-miterlimit="10" d="M31.74 0v18c0 2.74 1.29 12.29-.5 13.96-1.65 1.53-7.08-.9-8.91-1-2.68-.15-5.44.04-8.13.04-2.41 0-12.1-1.27-13.53.63C1.16 26.5.74 21.15.74 16c0-2.65-.17-5.36-.02-8 .08-1.5.58-2.6 1.05-4.02.67-2.02-.31-1.91 2.46-1.99C9.59 1.85 14.97 2 20.32 2c2.97 0 5.95-.08 8.92-.01 1.95.05 1.97-.23 2.53 1.47.44 1.34.28 2.19.96 3.54"/>
+                                </svg>
+                                <svg className="checkmark" viewBox="0 0 37.92 33.3" preserveAspectRatio="none">
+                                <path fill="none" stroke="#000" stroke-miterlimit="10" d="M.59 19.57c1.41.11 2.74 1.49 3.93 2.22 1.96 1.22 4.34 1.97 6.16 3.29 1.94 1.41 3.17 3.68 5.03 5.09-1.01-1.05-2.52-1.47-3.7-2.3-2.15-1.5-4.06-2.99-6.49-4.1-1.46-.67-6.06-1.54-4.8-4.07 1.76-.33 5.43 3.09 6.68 4.15 1.47 1.24 2.42 2.87 3.98 4 2.01 1.45 2.09 1.24 3.97-.52 1.43-1.34 2.28-2.68 3.24-4.25 1.04-1.71 2.62-3.12 3.79-4.72.31-.42.64-1.52.93-2 .87-1.48 2.1-2.58 3.3-3.77 2.23-2.22 4.27-4.42 6.27-6.8.59-.7 1.46-1.2 2-1.93.58-.77.73-1.66 1.33-2.42C33 3 31.46 7.7 29.34 10.35c-1.99 2.48-4.31 4.87-5.75 7.71-2.38 4.67-5.6 10.27-9.65 13.43.83-1.6 2.49-2.55 3.65-3.87 1.51-1.72 2.8-3.72 4.22-5.52 1.87-2.37 3.39-4.85 4.96-7.23 1.27-1.94 3.29-4.64 5.02-6.3 1.25-1.19 2.15-1.5 3.07-3 .61-.99.87-1.86 1.83-2.6-4.07 4.06-7.78 8.84-11.07 13.55-2.11 3.02-4.17 6.06-6.3 9.07-1 1.42-3.02 5.22-4.37 5.89.89-1.76 2.86-2.94 4.07-4.49 2.66-3.42 4.5-7.43 7.04-10.94 1.59-1.98 3.18-3.97 4.77-5.96.41-.84.74-1.72 1-2.62.72-1.07 1.95-1.79 2.76-2.91"/>
+                                </svg>            
                                 {veggie.name}
                               </label>
                               <p className="mt-1 text-gray-600">{veggie.description}</p>
