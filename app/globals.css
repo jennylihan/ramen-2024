@@ -39,6 +39,12 @@
   text-orientation: upright;
 }
 
+.title {
+  text-shadow: 0px 4px 0px rgba(0,0,0,1);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000;
+}
+
 /* RADIO BUTTONS
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 [type="radio"] {
@@ -58,6 +64,20 @@
   /*the value of the stroke-* properties comes from the getTotalLength() method*/
   stroke-dasharray: 1553.89599609375;
   stroke-dashoffset: 1553.89599609375;
+  transition: stroke-dashoffset 0.5s linear;
+}
+
+.radio label .tall-circle {
+  /*the value of the stroke-* properties comes from the getTotalLength() method*/
+  stroke-dasharray: 1599.269287109375;
+  stroke-dashoffset: 1599.269287109375;
+  transition: stroke-dashoffset 0.5s linear;
+}
+
+.radio label .small-circle {
+  /*the value of the stroke-* properties comes from the getTotalLength() method*/
+  stroke-dasharray: 811.5197143554688;
+  stroke-dashoffset: 811.5197143554688;
   transition: stroke-dashoffset 0.5s linear;
 }
 
