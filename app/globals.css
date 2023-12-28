@@ -46,6 +46,25 @@
   left: -9999px;
 }
 
+.radio label svg {
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  transform: translate(-50%, -50%);
+}
+
+.radio label .big-circle {
+  /*the value of the stroke-* properties comes from the getTotalLength() method*/
+  stroke-dasharray: 1553.89599609375;
+  stroke-dashoffset: 1553.89599609375;
+  transition: stroke-dashoffset 0.5s linear;
+}
+
+.radio [type="radio"]:checked + label .circle {
+  stroke-dashoffset: 0;
+}
+
 /* CHECKBOX BUTTONS
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 input {
