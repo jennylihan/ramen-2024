@@ -10,14 +10,13 @@ import seaweedIcon from "./assets/seaweed.png"
 import garlicIcon from "./assets/garlic.png"
 import mushroomIcon from "./assets/mushroom.png"
 import cabbageIcon from "./assets/cabbage.png"
-
+import { useRouter } from 'next/navigation'
 
 //import sprite from './assets/sprite2.svg'
 
 export default function Page() {
-  const [orderPlaced, setOrderPlaced] = useState(false)
-  const [orderId, setOrderId] = useState("")
-  const [orderName, setOrderName] = useState("")
+  let router = useRouter()
+  const [loading, setLoading] = useState(false)
 
   const bowlList = [
     { id: "bowl-original", name: 'Original King', description: '' },
@@ -52,6 +51,7 @@ export default function Page() {
 
   async function handleSubmit(event: any) {
     event.preventDefault()
+    setLoading(true)
     const formData = new FormData(event.target)
     const d = Object.fromEntries(formData)
 
@@ -73,36 +73,13 @@ export default function Page() {
       .from('orders')
       .upsert({ email: d.email, name: d.name, bowl_type: d.bowl, sauce: d.sauce, size: d.size, beauty: d["veggie-beauty"], usefulness: d["veggie-usefulness"], curiosity: d["veggie-curiosity"], humor: d["veggie-humor"], sentiment: d["veggie-sentiment"], egg: d.egg }).select()
     if (!error) {
-      setOrderPlaced(true)
-      setOrderId(data[0].id)
-      setOrderName(data[0].name)
+      router.push(`/confirmation?id=${data[0].id}&name=${data[0].name}`)
+      setLoading(false)
     }
   }
+
   function classNames(...classes: any[]) {
     return classes.filter(Boolean).join(' ')
-  }
-
-  if (orderPlaced && orderId && orderName) {
-    return (
-      <>
-        <div className="h-screen w-screen bg-[#e2231b] flex justify-center items-center">
-          <div className="flex flex-row items-center justify-center p-20 max-w-xl z-10 bg-white border-8 border-black">
-            <div>
-              <p className="text-2xl">{`ORDER PLACED, ${orderName}!`}</p>
-              <div className="h-9"></div>
-              <p>{`ORDER ID: ${orderId}`}</p>
-              <p>{`ORDER PLACED: ${(new Date).toDateString()}`}</p>
-              <p>{`ORDER READY BY: Mon Jan 1, 2024`}</p>
-              <div className="h-36"></div>
-              <p>AMOUNT DUE: $0.00</p>
-              <div className="h-24"></div>
-              <p>SEND TO A FRIEND!</p>
-              <p>THANK YOU FOR SHOPPING LOCAL</p>
-            </div>
-          </div>
-        </div>
-      </>
-    )
   }
 
   return (
@@ -331,7 +308,7 @@ export default function Page() {
             type="submit"
             className="inline-flex justify-center rounded-md outline text-white bg-red outline-red sm:bg-white sm:text-red px-3 py-2 text-sm font-semibold shadow-sm hover:bg-red hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red"
           >
-            Place Order!
+            {loading ? "Loading..." : "Place Order!"}
           </button>
         </div>
       </form >
