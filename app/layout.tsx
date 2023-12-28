@@ -19,7 +19,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={GeistSans.className}>
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Ultra&display=swap" rel="stylesheet" />
