@@ -80,7 +80,7 @@ export default function Page() {
   }
 
   return (
-    <div className="w-64 sm:w-[500px] py-12">
+    <div className="max-w-full overflow-x-hidden w-64 sm:w-[500px] py-12">
       <form onSubmit={handleSubmit}>
         <div id="form-body" className="border-8 border-black">
           <div id="header" className="flex items-center flex-col p-4 gap-2 outline outline-1">
