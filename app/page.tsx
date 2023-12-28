@@ -103,7 +103,7 @@ export default function Page() {
               <input
                 id="name"
                 name="name"
-                className="block w-full h-full outline text-sm sm:text-base text-red font-handwritten"
+                className="block w-full h-full outline outline-black border-black focus:outline-black focus:outline-black focus:outline-offset-0 text-sm sm:text-base text-red font-handwritten"
               />
             </div>
             <div className="flex w-full h-full outline justify-center items-center">
@@ -117,7 +117,7 @@ export default function Page() {
                 name="email"
                 type="email"
                 autoComplete="email"
-                className="block w-full h-full outline text-sm sm:text-base text-red font-handwritten"
+                className="block w-full h-full outline outline-black bg-transparent border-black text-sm sm:text-base text-red font-handwritten"
               />
             </div>
           </div>
@@ -232,8 +232,7 @@ export default function Page() {
                   <legend className="sr-only">Egg?</legend>
                   <h3 className="text-sm text-gray-600">Egg?</h3>
                 </div>
-                <div className="checkbox flex flex-wrap gap-3 outline justify-center items-center p-3">
-                  <div className="pl-7">
+                <div className="checkbox flex flex-wrap w-full h-full gap-3 outline justify-center place-items-center p-3 pl-7">
                   <input
                     id="egg"
                     name="egg"
@@ -249,7 +248,6 @@ export default function Page() {
                     </svg>
                     <p className="text-base">Yes</p>
                   </label>
-                  </div>
                 </div>
               </fieldset>
             </div>
