@@ -90,37 +90,6 @@ export default function Page() {
               All items are virtual only.<br/>Not available for take out or physical consumption.
             </p>
           </div>
-          <div id="contact" className="grid grid-cols-[25px_50px_1fr] grid-rows-2 border-2 border-black justify-items-center items-center">
-            <div className="row-span-2 w-full h-full outline outline-black bg-black justify-items-center items-center">
-              <h2 className="vertical text-xs tracking-tighter uppercase text-white font-semibold m-1">Contact</h2>
-            </div>
-            <div className="flex w-full h-full outline justify-center items-center">
-              <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
-                Name
-              </label>
-            </div>
-            <div className="flex w-full h-full outline justify-center items-center">
-              <input
-                id="name"
-                name="name"
-                className="block w-full h-full outline outline-black border-black focus:outline-black focus:outline-black focus:outline-offset-0 text-sm sm:text-base text-red font-handwritten"
-              />
-            </div>
-            <div className="flex w-full h-full outline justify-center items-center">
-              <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-                Email
-              </label>
-            </div>
-            <div className="flex w-full h-full outline justify-center items-center">
-              <input
-                id="email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                className="block w-full h-full outline outline-black bg-transparent border-black text-sm sm:text-base text-red font-handwritten"
-              />
-            </div>
-          </div>
 
           <div id="flavor">
             <fieldset>
@@ -296,6 +265,38 @@ export default function Page() {
                     </div>
                   </div>
             </fieldset>
+          </div>
+
+          <div id="contact" className="grid grid-cols-[25px_50px_1fr] grid-rows-2 border-2 border-black justify-items-center items-center">
+            <div className="row-span-2 w-full h-full outline outline-black bg-black justify-items-center items-center">
+              <h2 className="vertical text-xs tracking-tighter uppercase text-white font-semibold m-1">Contact</h2>
+            </div>
+            <div className="flex w-full h-full outline justify-center items-center">
+              <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
+                Name
+              </label>
+            </div>
+            <div className="flex w-full h-full outline justify-center items-center">
+              <input
+                id="name"
+                name="name"
+                className="block w-full h-full outline outline-black border-black focus:outline-black focus:outline-black focus:outline-offset-0 text-sm sm:text-base text-red font-handwritten"
+              />
+            </div>
+            <div className="flex w-full h-full outline justify-center items-center">
+              <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+                Email
+              </label>
+            </div>
+            <div className="flex w-full h-full outline justify-center items-center">
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autoComplete="email"
+                className="block w-full h-full outline outline-black bg-transparent border-black text-sm sm:text-base text-red font-handwritten"
+              />
+            </div>
           </div>
         </div>
 
