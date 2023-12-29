@@ -58,6 +58,7 @@ export default function Page() {
     // if user has already missed email, name, bowl, sauce, size, alert them 
     if (!d.email || !d.name || !d.bowl || !d.sauce || !d.size) {
       alert("Please fill out all required fields.")
+      setLoading(false)
       return
     }
 
@@ -65,6 +66,7 @@ export default function Page() {
     const veggieKeys = Object.keys(d).filter((key) => key.includes("veggie"))
     if (veggieKeys.length == 0 || veggieKeys.length > 3) {
       alert("Please select at least 1 vegetable, but no more than 3 vegetables.")
+      setLoading(false)
       return
     }
 
