@@ -9,6 +9,7 @@ module.exports = {
       fontFamily: {
         title: ['Ultra', 'Impact', 'serif'],
         handwritten: ['Gochi Hand', 'sans-serif'],
+        receipt: ['Fake Receipt', 'monospace']
       },
       colors: {
         background: "hsl(var(--background))",
@@ -17,7 +18,7 @@ module.exports = {
           background: "hsl(var(--btn-background))",
           "background-hover": "hsl(var(--btn-background-hover))",
         },
-        red: '#ff0050',
+        red: '#e2231b',
       },
     },
   },
