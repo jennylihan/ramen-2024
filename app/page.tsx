@@ -17,6 +17,7 @@ import { useRouter } from 'next/navigation'
 export default function Page() {
   let router = useRouter()
   const [loading, setLoading] = useState(false)
+  const [errorText, setErrorText] = useState("")
 
   const bowlList = [
     { id: "bowl-original", name: 'Original King', description: '' },
@@ -59,6 +60,7 @@ export default function Page() {
     if (!d.email || !d.name || !d.bowl || !d.sauce || !d.size) {
       alert("Please fill out all required fields.")
       setLoading(false)
+      setErrorText("Please fill out all required fields.")
       return
     }
 
@@ -66,6 +68,7 @@ export default function Page() {
     const veggieKeys = Object.keys(d).filter((key) => key.includes("veggie"))
     if (veggieKeys.length == 0 || veggieKeys.length > 3) {
       alert("Please select at least 1 vegetable, but no more than 3 vegetables.")
+      setErrorText("Please select at least 1 vegetable, but no more than 3 vegetables.")
       setLoading(false)
       return
     }
@@ -305,7 +308,10 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="my-12 flex items-center justify-center gap-x-6">
+        <div className="my-12 flex flex-col gap-2 items-center justify-center gap-x-6">
+          {
+            errorText && <p className="text-red">{errorText}</p>
+          }
           <button
             type="submit"
             className="inline-flex justify-center rounded-md outline text-white bg-red outline-red sm:bg-white sm:text-red px-3 py-2 text-sm font-semibold shadow-sm hover:bg-red hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red"
