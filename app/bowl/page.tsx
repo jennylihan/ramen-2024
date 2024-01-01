@@ -12,10 +12,9 @@ export default function BowlPage() {
 
     return (
         <>
-            <div className="min-h-screen w-screen bg-red flex flex-col justify-center items-center">
-                <div className="w-64 max-w-[90vw] h-64 max-h-[90vh]">
+            <div className="min-h-screen w-screen bg-red flex flex-col justify-center items-end">
                 <Bowl />
-                </div>
+                <div className="bg-pink-400"></div>
             </div>
         </>
     )
