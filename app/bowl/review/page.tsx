@@ -30,21 +30,32 @@ export default function Page() {
         return (reviews ? reviews.length : 0)
     }
 
-    function ratingToStars() {
-        const avg = averageRating()
-        if (avg < .5) {
+    function ratingToStars(rating) {
+        if (rating < .5) {
             return ("")
-        } else if (avg < 1.5) {
+        } else if (rating < 1.5) {
             return ("★")
-        } else if (avg < 2.5) {
+        } else if (rating < 2.5) {
             return ("★★")
-        } else if (avg < 3.5) {
+        } else if (rating < 3.5) {
             return ("★★★")
-        } else if (avg < 4.5) {
+        } else if (rating < 4.5) {
             return ("★★★★")
         } else {
             return ("★★★★★")
         }
+    }
+
+    function generateUsername() {
+        const adjectives = ["Big", "Major", "Supreme", "Total", "Unparalleled", "Great", "Huge", "Immense", "Enormous", "Massive", "Mammoth", "Sizeable"]
+        const foods = ["Soup", "Ramen", "Noodle", "Cabbage", "Onion", "Mushroom", "Pepper", "Egg", "Garlic", "Seaweed"]
+        const nouns = ["Lover", "Fan", "Fanatic", "Enthusiats", "Devotee", "Admirer", "Zealot", "Connoisseur", "Buff", "Aficionado", "Freak", "Nut"]
+
+        const adjective = adjectives[Math.floor(Math.random() * adjectives.length)]
+        const food = foods[Math.floor(Math.random() * foods.length)]
+        const noun = nouns[Math.floor(Math.random() * nouns.length)]
+        const number = Math.floor(Math.random() * 10000)
+        return (adjective+"-"+food+"-"+noun+number)
     }
 
     const getReviews = useCallback(async () => {
@@ -102,11 +113,12 @@ export default function Page() {
 
     return (
         <div className="min-h-screen w-screen bg-red flex flex-col justify-center items-center">
+            <div className='flex flex-col justify-center items-center mt-[10vh] sm:mt-[30vh]'>
             <h2 className='text-large sm:text-xl text-white p-4'>Thanks for visiting:</h2>
-            <h1 className="title text-2xl sm:text-3xl text-center text-white font-title">Jenny and Jacob's<br />New Years Ramen Shop</h1>
-            <h2 className="text-xl p-4 sm:text-2xl text-center text-white">{averageRating().toFixed(1)} {ratingToStars()} ({numRatings()})</h2>
-            <div className="max-w-full overflow-x-hidden w-64 sm:w-[500px] py-12 flex flex-col sm:flex-row justify-center items-center">
-                <div id="review-form" className='w-full sm:w-1/2 bg-white min-h-[19rem] my-4 mx-4 border-8 border-black p-4 flex justify-center items-center'>
+            <h1 className="title text-2xl sm:text-3xl text-center text-white font-title">Jenny and Jacob's<br />New Year's Ramen Shop</h1>
+            <h2 className="text-xl p-4 sm:text-2xl text-center text-white">{averageRating().toFixed(1)} {ratingToStars(averageRating)} ({numRatings()})</h2>
+            <div className="max-w-full overflow-x-hidden w-64 sm:w-[500px] py-12 flex flex-col justify-center items-center">
+                <div id="review-form" className='w-full bg-white min-h-10rem] my-4 mx-4 border-8 border-black p-4 flex justify-center items-center'>
                     {reviewed ? (
                         <div className="text-base font-bold text-gray-600">
                             <h2>Thanks!</h2>
@@ -180,7 +192,7 @@ export default function Page() {
                                             id="review-text"
                                             name="reviewText"
                                             cols="40"
-                                            rows="4"
+                                            rows="3"
                                             placeholder={placeholderReviews[Math.floor(Math.random() * placeholderReviews.length)]}
                                             className="block w-full h-full text-base text-gray-900 rounded-md focus:border-red"
                                         />
@@ -199,12 +211,43 @@ export default function Page() {
                         </div>
                     )}
                 </div>
-                <div id='review-page'
-                    className='w-full sm:w-1/2 bg-white mx-4 border-8 border-black'>
+                <div id='review-page' className='w-full bg-white mx-4 border-8 p-4 border-black'>
+                    {
+                        reviews ?
+                            reviews.map((review, i, reviews) => {
+                                if (i + 1 == reviews.length) {
+                                return (
+                                    <div>
+                                    <div key={review.id} className="w-full h-full py-4">
+                                        <p className='italic'>{generateUsername()}:</p>
+                                        <p>{ratingToStars(review.rating)}</p>
+                                        <p>{review.review_text}</p>
+                                    </div>
+                                    </div>
+                                )
+                                    
+                                } else {
+                                return (
+                                    <div>
+                                    <div key={review.id} className="w-full h-full py-4">
+                                        <p className='italic'>{generateUsername()}:</p>
+                                        <p>{ratingToStars(review.rating)}</p>
+                                        <p>{review.review_text}</p>
+                                    </div>
+                                    <hr className='w-10/12'/>
+                                    </div>
+                                )
+                                }
+                            })
+                            
+                        :
+                            (<p>Loading...</p>)
 
+                        }
                 </div>
             </div>
 
         </div >
+            </div>
     )
 }
