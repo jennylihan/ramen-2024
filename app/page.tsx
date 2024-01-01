@@ -17,6 +17,7 @@ import { useRouter } from 'next/navigation'
 export default function Page() {
   let router = useRouter()
   const [loading, setLoading] = useState(false)
+  const [open, setOpen] = useState(false)
   const [errorText, setErrorText] = useState("")
 
   const bowlList = [
@@ -89,6 +90,7 @@ export default function Page() {
 
   return (
     <div className="max-w-full overflow-x-hidden w-64 sm:w-[500px] py-12">
+      {open ? (
       <form onSubmit={handleSubmit}>
         <div id="form-body" className="border-8 border-black">
           <div id="header" className="flex items-center flex-col p-4 gap-2 outline outline-1">
@@ -308,7 +310,7 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="my-12 flex flex-col gap-2 items-center justify-center gap-x-6">
+<div className="my-12 flex flex-col gap-2 items-center justify-center gap-x-6">
           {
             errorText && <p className="text-red">{errorText}</p>
           }
@@ -320,6 +322,10 @@ export default function Page() {
           </button>
         </div>
       </form >
+      
+    ) : (
+      <div><h1 className='text-2xl'> Sorry, we're not accepting any more orders.</h1></div>
+    )}
     </div>
   )
 }
