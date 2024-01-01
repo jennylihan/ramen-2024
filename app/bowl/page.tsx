@@ -2,10 +2,12 @@
 import { useCallback, useState, useEffect } from 'react'
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import { useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import Bowl from '../components/bowl';
 
 
 export default function BowlPage() {
+  let router = useRouter()
   const [gotData, setData] = useState(false)
   const [isLoading, setLoading] = useState(true)
   const [veggie1, setVeggie1] = useState(null)
@@ -79,6 +81,10 @@ export default function BowlPage() {
       useEffect(() => {
         getBowl()
       }, [orderId, orderEmail, getBowl])
+    
+    async function finishedEating() {
+      router.push(`/bowl/review}`)
+    }
 
     if (isLoading) return <p>Loading...</p>
     if (!gotData) return <p>Sorry, something went wrong getting your bowl. Check to make sure your email and order ID are correct.</p>
