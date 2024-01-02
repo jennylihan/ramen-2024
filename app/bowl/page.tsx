@@ -62,9 +62,13 @@ export default function BowlPage() {
 
             if (data) {
                 console.log(data)
+                //@ts-ignore
                 setVeggie1(data.veggie_1)
+                //@ts-ignore
                 setVeggie2(data.veggie_2)
+                //@ts-ignore
                 setVeggie3(data.veggie_3)
+                //@ts-ignore
                 setEgg(data.egg)
                 setBowlType(data.bowl_type)
                 setData(true)
