@@ -1,6 +1,6 @@
 import Link from 'next/link';
-export default function Egg({ egg }: { egg: boolean }) {
-    // if (!egg) return null;
+export default function Egg({ egg }: { egg: boolean | null }) {
+    if (!egg) return null;
 
     return (
         <Link href="https://www.instagram.com/world_record_egg/p/BsOGulcndj-/" passHref rel="noopener noreferrer" target="_blank">

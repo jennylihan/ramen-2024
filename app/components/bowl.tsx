@@ -28,11 +28,9 @@ let soupColors = {
 export default function Bowl({
   bowlType, veggie1, veggie2, veggie3, egg
 }: {
-  bowlType: string | null, veggie1: Veggie | null, veggie2: Veggie | null, veggie3: Veggie | null, egg: boolean
+  bowlType: string | null, veggie1: Veggie | null, veggie2: Veggie | null, veggie3: Veggie | null, egg: boolean | null
 }) {
-  const handleClick = (link: string) => {
 
-  }
   let soupColor: string = soupColors[bowlType as keyof typeof soupColors];
   return (
     <div className="">

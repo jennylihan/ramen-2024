@@ -94,6 +94,9 @@ export default function BowlPage() {
             <div className="min-h-screen w-screen bg-red">
                 <Bowl bowlType={bowlType} veggie1={veggie1} veggie2={veggie2} veggie3={veggie3} egg={egg} />
             </div>
+            <div className="bg-black text-white absolute bottom-[20px] right-2 rounded-md p-4">
+                <button onClick={finishedEating}>Finished Eating? Leave a review</button>
+            </div>
         </>
     )
 }
