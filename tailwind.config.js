@@ -28,6 +28,13 @@ module.exports = {
     "bg-orange-400",
     "bg-black",
     "bg-green-700",
-    "bg-emerald-900",
+    "bg-[#426714]", //soup color green
+    "bg-[#ED9F9B]",
+    "bg-[#A0310E]",
+    "bg-[#ED9F9B]",
+    "bg-[#86A363]",
+    "bg-[#97B375]",
+    "bg-[#301D1D]",
+    "bg-[#DC5757]",
   ],
 };

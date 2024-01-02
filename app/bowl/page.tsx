@@ -91,12 +91,11 @@ export default function BowlPage() {
         router.push(`/bowl/review}`)
     }
     let soupBackground = {
-        "bowl-veggie": "green-700",
-        "bowl-red": "red",
-        "bowl-green": "emerald-900",
-        "bowl-black": "black",
-        // "bowl-original": "orange-400",
-        "bowl-original": "orange-400",
+        "bowl-veggie": "[#97B375]",
+        "bowl-red": "[#ED9F9B]",
+        "bowl-green": "[#97B375]",
+        "bowl-black": "[#DC5757]",
+        "bowl-original": "[#ED9F9B]",
 
     }
 

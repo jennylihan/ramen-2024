@@ -15,14 +15,12 @@ type Veggie = {
 };
 
 let soupColors = {
-  "bowl-veggie": "#FF6059",
-  "bowl-red": "#FF6059",
-  "bowl-green": "#FF6059",
-  "bowl-original": "orange",
-  "bowl-black": "#FF6059",
+  "bowl-veggie": "#426714",
+  "bowl-red": "#A0310E",
+  "bowl-green": "#426714",
+  "bowl-original": "#A0310E",
+  "bowl-black": "#301D1D",
 }
-
-
 
 
 export default function Bowl({
