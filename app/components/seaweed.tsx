@@ -22,7 +22,7 @@ export default function Seaweed({ veggie1, veggie2, veggie3 }: { veggie1: any, v
             {
                 veggie2.category == CATEGORY &&
                 <a href={veggie2.link} target="_blank" className="floater">
-                    <rect x="430" y="100" width="143.349" height="143.349" transform="rotate(-83.8899 525 211.535)" fill="url(#seaweed2)" />
+                    <rect x="500" y="180" width="143.349" height="143.349" transform="rotate(-83.8899 525 211.535)" fill="url(#seaweed2)" />
                 </a>
             }
 

@@ -18,7 +18,7 @@ export default function Garlic({ veggie1, veggie2, veggie3 }: { veggie1: any, ve
             {
                 veggie3.category == CATEGORY &&
                 <a href={veggie3.link} target="_blank" className="floater">
-                    <rect x="454.394" y="117" width="152" height="75" fill="url(#garlic3)" />
+                    <rect x="370.394" y="180" width="152" height="75" fill="url(#garlic3)" />
                 </a>
             }
             <defs>
