@@ -79,7 +79,7 @@ export default function Page() {
         getReviews()
     }, [getReviews])
 
-    async function handleSubmit(event: any) {
+    async function handleSubmit(event) {
         event.preventDefault()
         setLoading(true)
 

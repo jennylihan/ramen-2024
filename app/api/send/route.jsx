@@ -1,4 +1,3 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import { EmailTemplate } from '../../components/email-template'
 import { Resend } from 'resend';
