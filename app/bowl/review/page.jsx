@@ -35,6 +35,7 @@ export default function Page() {
   }
 
   function ratingToStars(rating) {
+    console.log(rating);
     if (rating < 0.5) {
       return "";
     } else if (rating < 1.5) {
@@ -160,7 +161,7 @@ export default function Page() {
           New Year's Ramen Shop
         </h1>
         <h2 className="text-xl p-4 sm:text-2xl text-center text-white">
-          {averageRating().toFixed(1)} {ratingToStars(averageRating)} (
+          {averageRating().toFixed(1)} {ratingToStars(averageRating())} (
           {numRatings()})
         </h2>
         <div className="max-w-full overflow-x-hidden w-64 sm:w-[500px] py-12 flex flex-col justify-center items-center">

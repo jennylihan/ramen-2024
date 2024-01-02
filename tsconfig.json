@@ -28,7 +28,10 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/bowl/review/page.jsx"
+    "app/api/send/route.jsx",
+    "app/components/bowl.tsx",
+    "app/bowl/review/page.jsx",
+    "app/bowl/page.jsx"
   ],
   "exclude": ["node_modules"]
 }

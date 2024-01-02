@@ -102,6 +102,7 @@ export default function Page() {
             .from('orders')
             .select(`
         orderId: id,
+        name: name,
         email: email,
         bowl_type: bowl_type,
         sauce: sauce,
@@ -163,6 +164,7 @@ export default function Page() {
                     .from('bowls')
                     .upsert({ 
                        order_id: order.orderId,
+                       name: order.name,
                        email: order.email,
                        bowl_type: order.bowl_type,
                        size: order.size,
@@ -176,7 +178,7 @@ export default function Page() {
                        egg: (eggForOrder? eggForOrder.id : null)
                     })
                 if (error) {
-                    setLoadStatus("Error crating bowls...")
+                    setLoadStatus("Error creating bowls...")
                     return
                 }
 
