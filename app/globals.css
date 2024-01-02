@@ -2,6 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
+.floater {
+  transform: translatey(0px);
+  animation: float 6s ease-in-out infinite;
+}
+
+.floater:hover {
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  cursor: pointer;
+}
+.img-overlay-wrap svg {
+  position: absolute;
+  top: 50px;
+  left: 0;
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-10px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
 @layer base {
   :root {
     --background: 200 20% 98%;
@@ -14,14 +66,6 @@
 @layer base {
   * {
     @apply border-foreground/20;
-  }
-}
-
-@layer base {
-  @font-face {
-    font-family: Fake Receipt;
-    font-weight: 400;
-    src: url(/assets/fake-receipt.otf) format("otf");
   }
 }
 
@@ -48,7 +92,7 @@
 }
 
 .title {
-  text-shadow: 0px 4px 0px rgba(0,0,0,1);
+  text-shadow: 0px 4px 0px rgba(0, 0, 0, 1);
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #000;
 }
@@ -119,7 +163,6 @@ svg {
   height: 100%;
 }
 
-
 .checkbox label svg {
   top: 50%;
   left: -25px;
@@ -137,76 +180,4 @@ svg {
 
 .checkbox [type="checkbox"]:checked + label .checkmark {
   stroke-dashoffset: 0;
-}
-
-/* REVIEW PAGE 
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-/* .rating {
-  display: inline-block;
-  position: relative;
-  height: 50px;
-  line-height: 50px;
-  font-size: 50px;
-} */
-textarea::placeholder {
-  font-style:italic
-}
-
-.rating label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  cursor: pointer;
-}
-
-.rating label:last-child {
-  position: static;
-}
-
-.rating label:nth-child(1) {
-  z-index: 5;
-}
-
-.rating label:nth-child(2) {
-  z-index: 4;
-}
-
-.rating label:nth-child(3) {
-  z-index: 3;
-}
-
-.rating label:nth-child(4) {
-  z-index: 2;
-}
-
-.rating label:nth-child(5) {
-  z-index: 1;
-}
-
-.rating label input {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-}
-
-.rating label .icon {
-  float: left;
-  color: transparent;
-}
-
-.rating label:last-child .icon {
-  color: #000;
-}
-
-.rating:not(:hover) label input:checked ~ .icon,
-.rating:hover label:hover input ~ .icon {
-  color: #e2231b;
-}
-
-.rating label input:focus:not(:checked) ~ .icon:last-child {
-  color: #000;
-  text-shadow: 0 0 5px #09f;
 }

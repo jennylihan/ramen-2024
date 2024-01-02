@@ -9,6 +9,8 @@
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.1.1",
     "@next/font": "^14.0.4",
+    "@p5-wrapper/next": "^1.0.2",
+    "@p5-wrapper/react": "^4.3.2",
     "@supabase/auth-helpers-nextjs": "^0.8.7",
     "@supabase/ssr": "latest",
     "@supabase/supabase-js": "latest",
