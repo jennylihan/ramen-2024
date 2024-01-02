@@ -38,7 +38,7 @@ export default function BowlPage() {
         veggie_2:veggie_2 (
             category,
             link,
-            action
+            action    
         ),
         veggie_3:veggie_3 (
             category,

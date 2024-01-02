@@ -2,7 +2,6 @@ import Link from 'next/link';
 export default function Egg({ egg }: { egg: boolean }) {
     // if (!egg) return null;
 
-
     return (
         <Link href="https://www.instagram.com/world_record_egg/p/BsOGulcndj-/" passHref rel="noopener noreferrer" target="_blank">
             <svg className="floater" width="1210" height="696" viewBox="0 0 1210 696" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
