@@ -31,6 +31,7 @@ export default function Page() {
     }
 
     function ratingToStars(rating) {
+        console.log(rating)
         if (rating < .5) {
             return ("")
         } else if (rating < 1.5) {
@@ -116,7 +117,7 @@ export default function Page() {
             <div className='flex flex-col justify-center items-center mt-[10vh] sm:mt-[30vh]'>
             <h2 className='text-large sm:text-xl text-white p-4'>Thanks for visiting:</h2>
             <h1 className="title text-2xl sm:text-3xl text-center text-white font-title">Jenny and Jacob's<br />New Year's Ramen Shop</h1>
-            <h2 className="text-xl p-4 sm:text-2xl text-center text-white">{averageRating().toFixed(1)} {ratingToStars(averageRating)} ({numRatings()})</h2>
+            <h2 className="text-xl p-4 sm:text-2xl text-center text-white">{averageRating().toFixed(1)} {ratingToStars(averageRating())} ({numRatings()})</h2>
             <div className="max-w-full overflow-x-hidden w-64 sm:w-[500px] py-12 flex flex-col justify-center items-center">
                 <div id="review-form" className='w-full bg-white min-h-[17rem] my-4 mx-4 border-8 border-black p-4 flex justify-center items-center'>
                     {reviewed ? (
