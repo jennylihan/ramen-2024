@@ -16,7 +16,7 @@ export default function Seaweed({ veggie1, veggie2, veggie3 }: { veggie1: any, v
             {
                 veggie1.category == CATEGORY &&
                 <a href={veggie1.link} target="_blank" className="floater">
-                    <rect x="367" y="281.535" width="143.349" height="143.349" transform="rotate(-83.8899 367 308.535)" fill="url(#seaweed1)" />
+                    <rect x="367" y="600.535" width="143.349" height="143.349" transform="rotate(-83.8899 367 308.535)" fill="url(#seaweed1)" />
                 </a>
             }
             {
@@ -29,7 +29,7 @@ export default function Seaweed({ veggie1, veggie2, veggie3 }: { veggie1: any, v
             {
                 veggie3.category == CATEGORY &&
                 <a href={veggie3.link} target="_blank" className="floater">
-                    <rect x="454.394" y="117" width="143.349" height="143.349" transform="rotate(-83.8899 605 339.535)" fill="url(#seaweed3)" />
+                    <rect x="600.394" y="117" width="143.349" height="143.349" transform="rotate(-83.8899 605 339.535)" fill="url(#seaweed3)" />
                 </a>
             }
             <defs>
