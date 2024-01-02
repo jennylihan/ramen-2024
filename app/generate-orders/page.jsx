@@ -83,10 +83,16 @@ export default function Page() {
         for (let index = 0; index < ingredientData.length; index++) {
             const ingredient = ingredientData[index];
             // console.log(ingredient.size, ingredient.sauce, ingredient.category)
-            ingredientsSorted[ingredient.size][ingredient.sauce][ingredient.category].push(ingredient)
+            if (ingredient.sauce == "sauce-none" || ingredient.sauce == "sauce-mild") {
+            ingredientsSorted[ingredient.size]["sauce-none"][ingredient.category].push(ingredient)
+            ingredientsSorted[ingredient.size]["sauce-mild"][ingredient.category].push(ingredient)
+            }
+            if (ingredient.sauce == "sauce-medium" || ingredient.sauce == "sauce-spicy") {
+            ingredientsSorted[ingredient.size]["sauce-medium"][ingredient.category].push(ingredient)
+            ingredientsSorted[ingredient.size]["sauce-spicy"][ingredient.category].push(ingredient)
+            }
         }
-        // console.log(ingredientsSorted)
-
+       console.log(ingredientsSorted)
         setLoadStatus("Getting eggs...")
         const { data: eggData, error: eggError } = await supabase
         .from("eggs")

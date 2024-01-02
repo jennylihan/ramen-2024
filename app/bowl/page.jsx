@@ -32,18 +32,15 @@ export default function BowlPage() {
                 .select(`
         veggie_1:veggie_1 (
             category,
-            link,
-            action
+            link
         ),
         veggie_2:veggie_2 (
             category,
-            link,
-            action    
+            link
         ),
         veggie_3:veggie_3 (
             category,
-            link,
-            action
+            link
         ),
         egg (
             link,
@@ -88,7 +85,7 @@ export default function BowlPage() {
     }, [orderId, orderEmail, getBowl])
 
     async function finishedEating() {
-        router.push(`/bowl/review}`)
+        router.push("/bowl/review")
     }
     let soupBackground = {
         "bowl-veggie": "[#97B375]",

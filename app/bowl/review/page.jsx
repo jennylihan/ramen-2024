@@ -13,7 +13,7 @@ export default function Page() {
   const placeholderReviews = [
     "The wait took forever but it was totally worth it!",
     "Good food but the service could be improved...",
-    "I found a ringtone in my ramen " + String.fromCodePoint(129314),
+    "I found a tweet in my ramen " + String.fromCodePoint(129314),
     "Ramen was a little dry...",
     "This was the best digital ramen I never tasted!",
   ];
