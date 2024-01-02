@@ -7,9 +7,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        title: ['Ultra', 'Impact', 'serif'],
-        handwritten: ['Gochi Hand', 'sans-serif'],
-        receipt: ['Fake Receipt', 'monospace']
+        title: ["Ultra", "Impact", "serif"],
+        handwritten: ["Gochi Hand", "sans-serif"],
+        receipt: ["Fake Receipt", "monospace"],
       },
       colors: {
         background: "hsl(var(--background))",
@@ -18,11 +18,16 @@ module.exports = {
           background: "hsl(var(--btn-background))",
           "background-hover": "hsl(var(--btn-background-hover))",
         },
-        red: '#e2231b',
+        red: "#e2231b",
       },
     },
   },
-  plugins: [
-    require("@tailwindcss/forms"),
+  plugins: [require("@tailwindcss/forms")],
+  safelist: [
+    "bg-red",
+    "bg-orange-400",
+    "bg-black",
+    "bg-green-700",
+    "bg-emerald-900",
   ],
 };

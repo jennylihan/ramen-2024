@@ -90,12 +90,25 @@ export default function BowlPage() {
     async function finishedEating() {
         router.push(`/bowl/review}`)
     }
+    let soupBackground = {
+        "bowl-veggie": "green-700",
+        "bowl-red": "red",
+        "bowl-green": "emerald-900",
+        "bowl-black": "black",
+        // "bowl-original": "orange-400",
+        "bowl-original": "orange-400",
+
+    }
 
     if (isLoading) return <p>Loading...</p>
     if (!gotData) return <p>Sorry, something went wrong getting your bowl. Check to make sure your email and order ID are correct.</p>
     return (
         <>
-            <div className="min-h-screen w-screen bg-red">
+            <div className={`min-h-screen w-screen bg-${bowlType ? soupBackground[bowlType] : "red"}`}>
+                <div className="m-24 md:m-12 lg:m-2">
+                    <h1 className="lg:hidden text-4xl font-bold text-center">Your order has arrived!</h1>
+                    <p className="text-center">Click on the veggies to consume</p>
+                </div>
                 <Bowl bowlType={bowlType} veggie1={veggie1} veggie2={veggie2} veggie3={veggie3} egg={egg} />
             </div>
             <div className="bg-black text-white absolute bottom-[20px] right-2 rounded-md p-4">
