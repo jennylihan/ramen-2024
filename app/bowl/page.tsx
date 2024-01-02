@@ -6,13 +6,18 @@ import Bowl from '../components/bowl';
 
 
 export default function BowlPage() {
+    type Veggie = {
+        category: string;
+        link: string;
+        action: string;
+    };
+
     const [gotData, setData] = useState(false)
-    const [isLoading, setLoading] = useState(true)
-    const [veggie1, setVeggie1] = useState(null)
-    const [veggie2, setVeggie2] = useState(null)
-    const [veggie3, setVeggie3] = useState(null)
-    const [bowlType, setBowlType] = useState(null)
-    const [egg, setEgg] = useState(null)
+    const [isLoading, setLoading] = useState<boolean>(true)
+    const [veggie1, setVeggie1] = useState<Veggie | null>(null)
+    const [veggie2, setVeggie2] = useState<Veggie | null>(null)
+    const [veggie3, setVeggie3] = useState<Veggie | null>(null)
+    const [bowlType, setBowlType] = useState<string | null>(null)
     const supabase = createClientComponentClient()
 
 
@@ -63,7 +68,6 @@ export default function BowlPage() {
                 setVeggie1(data.veggie_1)
                 setVeggie2(data.veggie_2)
                 setVeggie3(data.veggie_3)
-                setEgg(data.egg)
                 setBowlType(data.bowl_type)
                 setData(true)
             }
@@ -84,17 +88,8 @@ export default function BowlPage() {
     if (!gotData) return <p>Sorry, something went wrong getting your bowl. Check to make sure your email and order ID are correct.</p>
     return (
         <>
-
-            <div className="min-h-screen w-screen bg-red flex flex-col justify-center items-center">
-                <div className="w-64 max-w-[90vw] h-64 max-h-[90vh]">
-                    <p>{bowlType}</p>
-                    <p>{veggie1.link}</p>
-                    <p>{veggie2.link}</p>
-                    <p>{veggie3.link}</p>
-                    {egg && (<p>{egg.link}</p>)}
-                    <Bowl />
-                    <div className="bg-pink-400"></div>
-                </div>
+            <div className="min-h-screen w-screen bg-red">
+                <Bowl bowlType={bowlType} veggie1={veggie1} veggie2={veggie2} veggie3={veggie3} />
             </div>
         </>
     )
