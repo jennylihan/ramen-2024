@@ -13,8 +13,10 @@ orderName, email, id
   <div>
     <h1>Hi, {orderName}!</h1>
     <p>Your order from Jenny and Jacob's New Year's Ramen Shop is ready! &#127836;</p>
-    <p>At Jenny and Jacob's New Year's Ramen Shop, we pride ourselves in using only
-        the freshest, most flavorful ingredients to make our ramen. Thanks why we've 
+    <p>We're very sorry for the delay in fullfilling your order as we were eagerly awaiting
+      a shipment of mushrooms. 
+      At Jenny and Jacob's New Year's Ramen Shop, we pride ourselves in using only
+        the freshest, most flavorful ingredients to make our ramen. We've 
         spent the last week curating the best items we found in 2023 
         to make your ramen. We hope you enjoy it! &#128523;</p>
         <p><a href={"https://ramen.wolfie.dev/bowl?email="+email+"&id="+id}>Collect your order here.</a></p>
