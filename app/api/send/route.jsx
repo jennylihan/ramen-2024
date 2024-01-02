@@ -22,6 +22,7 @@ export async function POST() {
                         from: `Jenny and Jacob's New Year Ramen Shop <order-up@ramen.wolfie.dev>`,
                         to: [order.email],
                         subject: 'Your order is ready!',
+                        reply_to: ['jacob.h.wolf@gmail.com', 'jh.jennylihan@gmail.com'],
                         // react: EmailTemplate({ firstName: order.name}),
                         react: EmailTemplate({ orderName: order.name, email: order.email, id: order.order_id }),
                     });
