@@ -6,19 +6,19 @@ export default function Garlic({ veggie1, veggie2, veggie3 }: { veggie1: any, ve
             {
                 veggie1.category == CATEGORY &&
                 <a href={veggie1.link} target="_blank" className="floater">
-                    <rect x="450" y="140" width="152" height="75" fill="url(#garlic1)" />
+                    <rect x="596" y="195" width="152" height="75" fill="url(#garlic1)" />
                 </a>
             }
             {
                 veggie2.category == CATEGORY &&
                 <a href={veggie2.link} target="_blank" className="floater">
-                    <rect x="640" y="91" width="152" height="75" fill="url(#garlic2)" />
+                    <rect x="631.581" y="57.9552" width="152" height="75" fill="url(#garlic2)" />
                 </a>
             }
             {
                 veggie3.category == CATEGORY &&
                 <a href={veggie3.link} target="_blank" className="floater">
-                    <rect x="649.997" y="213" width="152" height="75" fill="url(#garlic3)" />
+                    <rect x="454.394" y="117" width="152" height="75" fill="url(#garlic3)" />
                 </a>
             }
             <defs>

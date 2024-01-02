@@ -3,8 +3,8 @@ export default function Egg({ egg }: { egg: boolean | null }) {
     if (!egg) return null;
 
     return (
-        <Link href="https://www.instagram.com/world_record_egg/p/BsOGulcndj-/" passHref rel="noopener noreferrer" target="_blank">
-            <svg className="floater" width="1210" height="696" viewBox="0 0 1210 696" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+        <Link className="floater" href="https://www.instagram.com/world_record_egg/p/BsOGulcndj-/" passHref rel="noopener noreferrer" target="_blank">
+            <svg width="1210" height="696" viewBox="0 0 1210 696" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                 <g clip-path="url(#clip0_12_160)">
                     <mask id="mask0_12_160" style={{ "maskType": "alpha" }} maskUnits="userSpaceOnUse" x="564" y="-51" width="473" height="268">
                         <ellipse cx="236.5" cy="134" rx="236.5" ry="134" transform="matrix(1 0 0 -1 564 217)" fill="#D9D9D9" />
