@@ -1,7 +1,9 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 import Egg from "./egg";
-import Veggie from "./veggie";
+import EmptyBowl from "./emptybowl";
+import Seaweed from "./seaweed";
+import Onion from "./onion";
 
 type Veggie = {
   category: string;
@@ -19,30 +21,18 @@ let soupColors = {
 
 
 export default function Bowl({
-  bowlType, veggie1, veggie2, veggie3
+  bowlType, veggie1, veggie2, veggie3, egg
 }: {
-  bowlType: string | null, veggie1: Veggie | null, veggie2: Veggie | null, veggie3: Veggie | null
+  bowlType: string | null, veggie1: Veggie | null, veggie2: Veggie | null, veggie3: Veggie | null, egg: boolean
 }) {
-  let soupColor = soupColors[bowlType as keyof typeof soupColors];
+  let soupColor: string = soupColors[bowlType as keyof typeof soupColors];
   return (
     <div className="">
-      {/* white bowl */}
-      <svg width="1210" height="696" viewBox="0 0 1210 696" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M570.878 38.8679C525.874 41.2079 465.148 49.9649 423.378 60.1379C381.961 70.2249 352.262 80.6559 320.378 96.3149C292.792 109.862 273.788 122.927 258.339 138.965C248.052 149.643 244.911 153.742 239.914 163.006C232.169 177.365 230.654 183.292 230.111 201.361C229.076 235.818 235.312 280.514 246.568 319.311C260.918 368.775 288.144 420.997 321.149 462.369C338.45 484.055 353.803 499.723 377.628 520.006L391.878 532.138L391.886 537.724C391.911 556.57 398.23 570.137 414.475 586.223C444.768 616.219 495.023 636.53 561.878 645.796C601.274 651.256 654.32 651.254 693.878 645.789C746.742 638.487 789.671 623.712 823.878 601.045C837.411 592.078 854.606 575.574 860.235 566.151C864.517 558.98 867.878 546.938 867.878 538.762C867.878 532.181 868.296 531.556 877.878 523.807C932.255 479.835 975.097 420.543 1002.16 351.811C1013.3 323.503 1021.03 293.186 1026.5 256.311C1028.85 240.535 1029.19 235.037 1029.28 211.811C1029.37 186.278 1029.29 185.074 1027 178.811C1020.86 161.983 1012.2 149.132 997.63 135.209C941.797 81.8499 820.922 45.0589 680.878 38.7989C656.375 37.7029 592.499 37.7429 570.878 38.8679ZM715.378 66.6959C811.848 76.2279 883.077 94.5869 938.378 124.175C973.742 143.096 998.316 168.036 1002.95 189.711C1003.59 192.682 1003.92 199.065 1003.69 203.898C1003.31 211.785 1002.83 213.56 999.023 221.25C988.11 243.274 965.973 262.14 929.878 280.179C871.431 309.388 794.791 327.477 698.378 334.817C675.839 336.533 611.305 337.153 582.878 335.926C487.84 331.825 397.766 312.709 337.059 283.757C295.895 264.126 272.132 244.608 260.651 221.001C256.641 212.755 256.406 211.771 256.047 201.743C255.701 192.073 255.903 190.585 258.417 184.243C267.813 160.545 290.562 139.781 327.868 120.851C386.643 91.0279 472.187 71.1819 570.878 64.4729C573.903 64.2679 602.703 64.1949 634.878 64.3109C686.493 64.4969 695.967 64.7779 715.378 66.6959Z" fill="white" />
-      </svg>
-      {/* bowl soup */}
-      <svg width="1210" height="696" viewBox="0 0 1210 696" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="629.5" cy="199.5" rx="374.5" ry="141.5" fill="#EACEB1" />
-      </svg>
-      {/* egg and veggies */}
-      <div className="relative">
+      <EmptyBowl soupColor={soupColor}>
         <Egg />
-        <Veggie link={veggie1.link} num={0} category={veggie1.category} />
-        < Veggie link={veggie2.link} num={1} category={veggie2.category} />
-        <Veggie link={veggie3.link} num={2} category={veggie3.category} />
-      </div>
-
-
-    </div>
+        {/* <Seaweed /> */}
+        {/* <Onion veggie1={veggie1} veggie2={veggie2} veggie3={veggie3} /> */}
+      </EmptyBowl>
+    </div >
   )
 }

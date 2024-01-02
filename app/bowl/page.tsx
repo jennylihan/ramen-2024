@@ -2,22 +2,19 @@
 import { useCallback, useState, useEffect } from 'react'
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import { useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import Bowl from '../components/bowl';
 
 
 export default function BowlPage() {
-    type Veggie = {
-        category: string;
-        link: string;
-        action: string;
-    };
-
+    let router = useRouter()
     const [gotData, setData] = useState(false)
-    const [isLoading, setLoading] = useState<boolean>(true)
-    const [veggie1, setVeggie1] = useState<Veggie | null>(null)
-    const [veggie2, setVeggie2] = useState<Veggie | null>(null)
-    const [veggie3, setVeggie3] = useState<Veggie | null>(null)
-    const [bowlType, setBowlType] = useState<string | null>(null)
+    const [isLoading, setLoading] = useState(true)
+    const [veggie1, setVeggie1] = useState(null)
+    const [veggie2, setVeggie2] = useState(null)
+    const [veggie3, setVeggie3] = useState(null)
+    const [bowlType, setBowlType] = useState(null)
+    const [egg, setEgg] = useState(null)
     const supabase = createClientComponentClient()
 
 
@@ -68,12 +65,14 @@ export default function BowlPage() {
                 setVeggie1(data.veggie_1)
                 setVeggie2(data.veggie_2)
                 setVeggie3(data.veggie_3)
+                setEgg(data.egg)
                 setBowlType(data.bowl_type)
                 setData(true)
             }
         } catch (error) {
             console.log("error getting bowl data")
             //   alert('Error loading user data!')
+            console.log(error)
             setData(false)
         } finally {
             setLoading(false)
@@ -84,12 +83,16 @@ export default function BowlPage() {
         getBowl()
     }, [orderId, orderEmail, getBowl])
 
+    async function finishedEating() {
+        router.push(`/bowl/review}`)
+    }
+
     if (isLoading) return <p>Loading...</p>
     if (!gotData) return <p>Sorry, something went wrong getting your bowl. Check to make sure your email and order ID are correct.</p>
     return (
         <>
             <div className="min-h-screen w-screen bg-red">
-                <Bowl bowlType={bowlType} veggie1={veggie1} veggie2={veggie2} veggie3={veggie3} />
+                <Bowl bowlType={bowlType} veggie1={veggie1} veggie2={veggie2} veggie3={veggie3} egg={egg} />
             </div>
         </>
     )
