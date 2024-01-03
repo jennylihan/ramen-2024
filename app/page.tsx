@@ -17,7 +17,7 @@ import { useRouter } from 'next/navigation'
 export default function Page() {
   let router = useRouter()
   const [loading, setLoading] = useState(false)
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(false)
   const [errorText, setErrorText] = useState("")
 
   const bowlList = [
